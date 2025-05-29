@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f8f5f2;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 52px;
+    height: 100vh;
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 30pt;
+}
+
+.header p {
+    margin: -4px 0 20px;
+    font-size: 10pt;
+    color: rgba(0, 0, 0, 0.658);
+}
+
+.header .add-book button {
+    border: none;
+    background-color: #08a3a3;
+    padding: 10px 28px;
+    border-radius: 8px;
+    margin-bottom: 22px;
+    font-weight: bold;
+    font-size: 12pt;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.header .add-book button:hover {
+    transform: scale(1.1);
+}
+
+.main {
+    border: none;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1000px;
+    padding: 20px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 500px;
+    margin-bottom: 40px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: start;
+    padding: 10px;
+}
+
+.cards .card {
+    background-color: #ffffff;
+    color: #333;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 200px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-height: 200px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.cards .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.cards .card h2 {
+    font-size: 16pt;
+    margin-bottom: 4px;
+}
+
+.cards .card p {
+    margin: 4px 0;
+    font-size: 10pt;
+}
+
+.cards .card .check,
+.cards .card .no-check {
+    border: none;
+    color: white;
+    font-weight: bold;
+    margin: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cards .card .check {
+    background-color: #4CAF50;
+}
+
+.cards .card .check:hover {
+    background-color: #3ea043;
+}
+
+.cards .card .no-check {
+    background-color: #f44336;
+}
+
+.cards .card .no-check:hover {
+    background-color: #d9362b;
+}
