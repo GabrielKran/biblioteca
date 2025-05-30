@@ -20,6 +20,10 @@ const layout = document.getElementById('layout');
 const mainForm = document.getElementById('main-form');
 const exitForm = document.getElementById('exit-form');
 
+//button for check and no check
+const buttonCheck = document.getElementById('check');
+const buttonNoCheck = document.getElementById('no-check');
+
 function addBookToLibrary() {
 }
 
@@ -35,4 +39,17 @@ function viewAndExitForm() {
     })
 }
 
+function checkNoCheck() {
+    buttonCheck.addEventListener('click', () => {
+        buttonCheck.classList.add('check-no-view');
+        buttonNoCheck.classList.remove('check-no-view');
+    })
+
+    buttonNoCheck.addEventListener('click', () => {
+        buttonNoCheck.classList.add('check-no-view');
+        buttonCheck.classList.remove('check-no-view');
+    })
+}
+
+checkNoCheck();
 viewAndExitForm();

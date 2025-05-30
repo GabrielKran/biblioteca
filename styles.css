@@ -121,6 +121,7 @@ body {
 
 .cards .card .check:hover {
     background-color: #3ea043;
+    transform: scale(1.1);
 }
 
 .cards .card .no-check {
@@ -129,6 +130,7 @@ body {
 
 .cards .card .no-check:hover {
     background-color: #d9362b;
+    transform: scale(1.1);
 }
 
 /* Estilizando o form */
@@ -194,6 +196,7 @@ body {
     transform: scale(1.05);
 }
 
+/* tags adicionadas via js */
 .view-form,
 .view-form * {
     display: none;
@@ -214,4 +217,8 @@ body {
 
 .img-x img:hover {
     transform: scale(1.2);
+}
+
+.check-no-view {
+    display: none;
 }
