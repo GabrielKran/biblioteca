@@ -194,7 +194,24 @@ body {
     transform: scale(1.05);
 }
 
-.main-form,
-.main-form * {
+.view-form,
+.view-form * {
     display: none;
+}
+
+.blur-all {
+    filter: blur(12px);
+}
+
+.img-x img {
+    height: 30px;
+    position: absolute;
+    top: 4%;
+    right: 6%;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.img-x img:hover {
+    transform: scale(1.2);
 }

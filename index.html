@@ -9,13 +9,13 @@
     <title>Biblioteca</title>
 </head>
 <body>
-    <div class="layout">
+    <div class="layout" id="layout">
         <div class="header">
             <h1>Biblioteca</h1>
             <p>Acompanhe suas leituras aqui</p>
 
             <div class="add-book">
-                <button>+ Livro</button>
+                <button id="button-form">+ Livro</button>
             </div>
         </div>
 
@@ -128,8 +128,13 @@
 
     </div>
 
-    <div class="main-form">
+    <div class="main-form view-form" id="main-form">
         <form id="form-book">
+
+            <div class="img-x">
+                <img src="imgs/x.svg" alt="x" id="exit-form">
+            </div>
+
             <label for="title">Título do livro <span>*</span></label>
             <input type="text" id="title" name="title" maxlength="30" placeholder="Ex: One Piece" required>
 
