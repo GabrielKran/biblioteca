@@ -9,6 +9,7 @@ function Book(title, author, pages, read, id) {
 }
 
 //form
+const form = document.getElementById('form-book')
 const getTitle = document.getElementById('title');
 const getAuthor = document.getElementById('author');
 const getPages = document.getElementById('pages');
@@ -24,7 +25,8 @@ const exitForm = document.getElementById('exit-form');
 const buttonCheck = document.getElementById('check');
 const buttonNoCheck = document.getElementById('no-check');
 
-function addBookToLibrary() {
+function addBookToLibrary(book) {    
+    
 }
 
 function viewAndExitForm() {
@@ -39,17 +41,38 @@ function viewAndExitForm() {
     })
 }
 
-function checkNoCheck() {
-    buttonCheck.addEventListener('click', () => {
+function checkNoCheck(value) {
+    if (value === 'finished') {
+        buttonCheck.addEventListener('click', () => {
         buttonCheck.classList.add('check-no-view');
         buttonNoCheck.classList.remove('check-no-view');
-    })
+        })
 
-    buttonNoCheck.addEventListener('click', () => {
+    } else {
+        buttonNoCheck.addEventListener('click', () => {
         buttonNoCheck.classList.add('check-no-view');
         buttonCheck.classList.remove('check-no-view');
+        })
+    }
+}
+
+function formInputs() {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const title = getTitle.value;
+        const author = getAuthor.value;
+        const pages = getPages.value;
+        const read = getRead.value;
+        
+        const newBook = new Book(title, author, pages, read, crypto.randomUUID());
+        myLibrary.push(newBook);
+        addBookToLibrary(newBook);
+        layout.classList.remove('blur-all');
+        mainForm.classList.add('view-form');
+
+        form.reset();
     })
 }
 
-checkNoCheck();
+formInputs();
 viewAndExitForm();
