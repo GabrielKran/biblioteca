@@ -32,7 +32,7 @@ function addBookToLibrary(book) {
 
     card.innerHTML = `
         <div class="img">
-            <img src="imgs/x.svg" alt="x" id="exit-card">
+            <img src="imgs/x.svg" alt="x" id="exit-card" data-id="${book.id}">
         </div>
         <h2>${book.title}</h2>
         <p><strong>${book.author}</strong></p>
@@ -62,10 +62,17 @@ function addBookToLibrary(book) {
 
     cardsDiv.appendChild(card);
 
-    const removeCard = card.getElementById('exit-card');
-    removeCard.addEventListener('click', () => {
-        
+    const removeCard = card.querySelector('#exit-card');
+    removeCard.addEventListener('click', (e) => {
+        const bookID = e.target.dataset.id;
+        const index = myLibrary.findIndex(book => book.id === bookID);
+        if (index !== -1) {
+            myLibrary.splice(index, 1);
+            card.remove();
+            console.log(`deletando o livro ${book.title}`); 
+        }
     })
+
 }
 
 function viewAndExitForm() {
@@ -98,5 +105,16 @@ function formInputs() {
     })
 }
 
+function addBooksManual() {
+    const book1 = new Book('Amor e Gelato', 'Jenna Evans Welch', '320', 'to-read', crypto.randomUUID());
+    const book2 = new Book('One Piece', 'Eiichiro Oda', '21000', 'finished', crypto.randomUUID());
+    const book3 = new Book('Kimetsu no Yaiba', 'Koyoharu Gotouge', '4416', 'finished', crypto.randomUUID());
+    myLibrary.push(book1, book2, book3);
+    addBookToLibrary(book1);
+    addBookToLibrary(book2);
+    addBookToLibrary(book3);
+}
+
+addBooksManual();
 formInputs();
 viewAndExitForm();
